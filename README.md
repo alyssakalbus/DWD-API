@@ -1,4 +1,4 @@
-# Dynamic Web Development Week 3
+# Dynamic Web Development Week 3 - WIP
 
 Design and develop a dynamic web application. Connect an API, include an interactive element, and make it responsive to the screen size.
 
