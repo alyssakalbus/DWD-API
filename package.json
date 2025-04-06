@@ -1,0 +1,24 @@
+{
+  "name": "dwd-api",
+  "version": "1.0.0",
+  "description": "Design and develop a dynamic web application. Connect an API, include an interactive element, and make it responsive to the screen size.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alyssakalbus/DWD-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alyssakalbus/DWD-API/issues"
+  },
+  "homepage": "https://github.com/alyssakalbus/DWD-API#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "request": "^2.88.2"
+  }
+}

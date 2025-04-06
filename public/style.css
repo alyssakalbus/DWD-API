@@ -1,0 +1,25 @@
+/* fonts */
+@font-face {
+    font-family: 'Junicode Roman';
+    src: url('fonts/JunicodeVF-Roman.woff2');
+}
+
+/* spacing */
+* {
+    padding: 1vh 1vw;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0400ff;
+    background-size: cover;
+    color: #ffffff;
+    font-family: 'Junicode Roman', sans-serif;
+}
+  
+  #output {
+    margin-top: 1em;
+    padding: 1em;
+    border: 1px solid #ddd;
+  }
+  
