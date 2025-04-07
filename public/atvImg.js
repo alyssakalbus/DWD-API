@@ -32,6 +32,7 @@ function atvImg() {
       const style = document.createElement('style');
       style.id = 'cosmic-animations';
       style.innerHTML = `
+
         @keyframes twinkle {
           0%, 100% { opacity: 0.2; transform: scale(1); }
           50% { opacity: 1; transform: scale(1.5); }

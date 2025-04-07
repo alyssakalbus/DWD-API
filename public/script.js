@@ -1,18 +1,3 @@
-// array of cards
-const tarotCards = [
-  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
-  "k", "l", "m", "n", "o", "p", "q", "r", "s", "t"
-];
-
-// shuffle cards
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
 // get dom elements
 const cardContainer = document.querySelector(".card-container");
 const output = document.getElementById("output");
@@ -29,7 +14,6 @@ fetch("https://tarotapi.dev/api/v1/cards/random?n=3")
 
 // Function to display tarot cards
 function displayTarotCards(cards) {
-  const cardContainer = document.querySelector(".card-container");
   cardContainer.innerHTML = ""; // Clear existing content
 
   cards.forEach(card => {
@@ -37,16 +21,7 @@ function displayTarotCards(cards) {
     cardElement.className = "atvImg tarot-card";
     cardElement.dataset.name = card.name_short;
 
-    const title = document.createElement("h3");
-    title.className = "card-title";
-    title.textContent = card.name;
-
-    const description = document.createElement("p");
-    description.className = "card-description";
-    description.textContent = card.desc;
-
-    cardElement.appendChild(title);
-    cardElement.appendChild(description);
+    // Blank card (no title or content inside)
     cardContainer.appendChild(cardElement);
   });
 
