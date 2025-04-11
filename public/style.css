@@ -1,17 +1,18 @@
-/* Font */
+/* Custom Font */
 @font-face {
   font-family: 'font';
   src: url('fonts/AzeretMono-Regular.woff2') format('woff2');
   font-display: swap;
 }
 
-/* Reset and Base Styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base Styles */
 body {
   background: #000;
   color: #fff;
@@ -25,15 +26,17 @@ body {
   line-height: 1.5;
   letter-spacing: 0.05em;
   padding: 1rem;
+  text-transform: uppercase;
 }
 
+/* Layout Components */
 header {
-  text-align: center;
-  width: 100%;
   position: fixed;
   top: 2rem;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
 }
 
 main {
@@ -47,6 +50,7 @@ main {
   justify-content: center;
 }
 
+/* Card Layout */
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -54,15 +58,14 @@ main {
   width: 100%;
   place-items: center;
   margin: 0 auto;
-  transform: translateY(-8rem); /* Move cards up */
+  transform: translateY(-6rem);
 }
-
 
 .atvImg {
   background: #111;
   border-radius: 30px;
-  width: 400px;
-  height: 660px;
+  width: 350px;
+  height: 580px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,37 +74,57 @@ main {
   margin: 0 auto;
 }
 
+/* Card States */
 .atvImg:hover {
   transform: translateY(-8px);
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.3);
 }
 
 .atvImg.active {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 200px rgb(255, 255, 255);
 }
 
+/* Content Styling */
+h2 {
+  font-size: 2rem;
+}
+
+.highlight {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#tarot-content p {
+  margin-bottom: 1rem;
+}
+
+/* Output Panel */
 #output {
   position: fixed;
   bottom: 4rem;
   left: 50%;
   transform: translateX(-50%);
-  text-align: center;
   width: 100%;
   max-width: 1000px;
+  max-height: 200px;
   padding: 1rem;
+  text-align: center;
+  background: rgba(17, 17, 17, 0.9);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
-  background: rgba(17, 17, 17, 0.9);
+  overflow-y: auto;
 }
 
+/* Footer */
 footer {
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  text-align: center;
   width: 100%;
   padding: 1rem;
+  text-align: center;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.6);
 }
+
