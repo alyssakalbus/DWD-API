@@ -14,7 +14,7 @@
 
 /* Base Styles */
 body {
-  background: #000;
+  background: #A3F472;
   color: #fff;
   font-family: 'font', sans-serif;
   min-height: 100vh;
@@ -23,7 +23,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  line-height: 1.5;
+  line-height: 1.75;
   letter-spacing: 0.05em;
   padding: 1rem;
   text-transform: uppercase;
@@ -62,7 +62,7 @@ main {
 }
 
 .atvImg {
-  background: #111;
+  background: #bfff9a;
   border-radius: 30px;
   width: 350px;
   height: 580px;
@@ -86,7 +86,7 @@ main {
 
 /* Content Styling */
 h2 {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 .highlight {
@@ -109,9 +109,8 @@ h2 {
   max-height: 200px;
   padding: 1rem;
   text-align: center;
-  background: rgba(17, 17, 17, 0.9);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+  background-color: #FDD8D9;
   overflow-y: auto;
 }
 

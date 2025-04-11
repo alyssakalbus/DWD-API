@@ -1,4 +1,4 @@
-// DOM
+// DOM Elements
 const cardContainer = document.querySelector('.card-container');
 const output = document.getElementById('output');
 const tarotTitle = document.getElementById('tarot-title');
@@ -7,8 +7,7 @@ const tarotContent = document.getElementById('tarot-content');
 // Initialize Tarot
 fetch('https://tarotapi.dev/api/v1/cards/random?n=3')
   .then(response => response.json())
-  .then(data => displayTarotCards(data.cards))
-  .catch(error => console.error('Error fetching cards:', error));
+  .then(data => displayTarotCards(data.cards));
 
 function displayTarotCards(cards) {
   cardContainer.innerHTML = '';
@@ -17,6 +16,15 @@ function displayTarotCards(cards) {
     const cardElement = document.createElement('div');
     cardElement.className = 'atvImg tarot-card';
     cardElement.dataset.name = card.name_short;
+    
+    const isReversed = Math.random() < 0.5;
+    if (isReversed) {
+      cardElement.classList.add('reversed');
+      cardElement.dataset.orientation = 'reversed';
+    } else {
+      cardElement.dataset.orientation = 'upright';
+    }
+    
     cardContainer.appendChild(cardElement);
   });
 
@@ -32,27 +40,26 @@ cardContainer.addEventListener('click', e => {
     .forEach(card => card.classList.remove('active'));
   target.classList.add('active');
 
-  fetchTarotCardDetails(target.dataset.name);
+  fetchTarotCardDetails(target.dataset.name, target.dataset.orientation === 'reversed');
 });
 
 // Fetch Card
-function fetchTarotCardDetails(cardName) {
+function fetchTarotCardDetails(cardName, isReversed) {
   fetch(`https://tarotapi.dev/api/v1/cards/${cardName}`)
     .then(response => response.json())
     .then(data => {
       const card = data.card;
       output.classList.remove('hidden');
-      tarotTitle.textContent = card.name;
+      tarotTitle.textContent = `${card.name}${isReversed ? ' (Reversed)' : ''}`;
       tarotContent.innerHTML = `
-        <p><span class="highlight">Meaning:</span> ${card.meaning_up}</p>
-        <p><span class="highlight">Reversed Meaning:</span> ${card.meaning_rev || 'N/A'}</p>
+        <p><span class="highlight">${isReversed ? 'Reversed Meaning' : 'Meaning'}:</span> 
+           ${isReversed ? (card.meaning_rev || 'N/A') : card.meaning_up}</p>
         <p><span class="highlight">Description:</span> ${card.desc}</p>
       `;
-    })
-    .catch(error => console.error('Error fetching card details:', error));
+    });
 }
 
-// Mobile
+// Mobile Support
 function initializeMobileSupport() {
   document.querySelectorAll('.atvImg').forEach(card => {
     card.addEventListener('touchstart', () => card.style.transform = 'scale(0.97)');
@@ -60,5 +67,4 @@ function initializeMobileSupport() {
   });
 }
 
-// Initialize Mobile
 initializeMobileSupport();
